@@ -1,0 +1,10 @@
+
+<h3>Change status of {{this.customer.u}}:</h3>
+<select [(ngModel)]="this.customer.custStatus" type="text">
+  <option value='irregular'>Irregular</option>
+  <option value='regular'>Regular</option>
+  <option value='super'>Super</option>
+</select>
+<button (click)="auth.changeStatus(this.customer.u,this.customer.custStatus)">Change status!</button>
+<button (click)="goBack()">Go back</button>
+<br /><br /><br /><br /><br />

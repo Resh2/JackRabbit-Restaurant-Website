@@ -1,0 +1,59 @@
+<header>
+  <nav class='navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3'>
+    <div class="container">
+      <a class="navbar-brand" [routerLink]='["/"]'><img src="https://i.imgur.com/YnWU2cc.png" height="70" width="120"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-label="Toggle navigation"
+              [attr.aria-expanded]="isExpanded" (click)="toggle()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]='{"show": isExpanded}'>
+        <ul class="navbar-nav flex-grow">
+          <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+            <a class="nav-link text-dark" [routerLink]='["/"]'>Home</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link text-dark" [routerLink]='["/menu"]'>Menu</a>
+          </li>
+          <div *ngIf="logged then resaccess"></div>
+          <ng-template #resaccess>
+            <li class="nav-item" [routerLinkActive]='["link-active"]'>
+              <a class="nav-link text-dark" [routerLink]='["/reservation"]'>Reservation</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]='["link-active"]'>
+              <a class="nav-link text-dark" [routerLink]='["/my-reservations"]'>My Reservations</a>
+            </li>
+          </ng-template>
+
+          <div *ngIf="viewInv then invaccess"></div>
+          <ng-template #invaccess><li class="nav-item" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link text-dark" [routerLink]='["/inventory"]'>Inventory</a>
+          </li></ng-template>
+          <div *ngIf="viewCust then custaccess"></div>
+          <ng-template #custaccess>
+            <li class="nav-item" [routerLinkActive]='["link-active"]'>
+              <a class="nav-link text-dark" [routerLink]='["/client"]'>Customers</a>
+            </li>
+          </ng-template>
+          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link text-dark" [routerLink]='["/about"]'>About Us</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+    <div *ngIf="!logged; then usernotlogged else useralreadylogged"></div>
+    <ng-template #usernotlogged>
+
+      <input [(ngModel)]="username" type="text" name="username" placeholder="Username" style="height: 30px"><br>
+      <input [(ngModel)]="password" type="password" name="Password" placeholder="Password" style="height: 30px"><br>
+      <button (click)="this.login()" style="height: 35px">Log in</button>
+      <button (click)="this.signup()" style="height: 35px">Create account</button>
+
+    </ng-template>
+
+    <ng-template #useralreadylogged>
+      Welcome {{this.authService.getUsername()}}!
+      <button (click)="this.logout()" style="height: 35px">Log out</button>
+    </ng-template>
+  </nav>
+</header>

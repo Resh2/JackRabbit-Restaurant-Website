@@ -1,0 +1,42 @@
+<div *ngIf="item">
+
+  <h1>{{item.name}} Details:</h1>
+  <img src="{{item.imgpath}}" width="400" height="300">
+  <div><font size="20">${{item.price}}</font></div>
+  <div><span>Calories: </span>{{item.itemNutrition.kcal}}</div>
+  <div><span>Grams of fat: </span>{{item.itemNutrition.gramsFat}}</div>
+  <div><span>Grams of sugar: </span>{{item.itemNutrition.gramsSugar}}</div>
+
+  <button (click)="goBack()">Go back</button>
+  <!--this needs to be hidden from non-admin by an ngif-->
+
+  <br />
+  <br />
+  <br />
+  <div *ngIf="viewcrud">
+    
+    <br />
+    <h3>Change item</h3>
+    <input [(ngModel)]="item.name" type="text" placeholder={{item.name}}>
+    <br />
+    <p>Image of product: </p><input #imageInput
+                                    type="file"
+                                    accept="image/*"
+                                    (change)="processFile(imageInput)">
+    <br />
+    <p>Calories: </p><input [(ngModel)]="item.itemNutrition.kcal" type="number" min="0" placeholder={{item.itemNutrition.kcal}}>
+    <br />
+    <p>Grams of fat: </p><input [(ngModel)]="item.itemNutrition.gramsFat" type="number" min="0" placeholder={{item.itemNutrition.gramsFat}}>
+    <br />
+    <p>Grams of sugar:</p><input [(ngModel)]="item.itemNutrition.gramsSugar" type="number" min="0" placeholder={{item.itemNutrition.gramsSugar}}>
+    <br />
+    <p>Pounds of beef used:</p><input [(ngModel)]="item.itemNutrition.lbsBeef" type="number" min="0" placeholder={{item.itemNutrition.lbsBeef}}>
+    <br />
+    <p>Pounds of chicken used:</p><input [(ngModel)]="item.itemNutrition.lbsChicken" type="number" min="0" placeholder={{item.itemNutrition.lbsChicken}}>
+    <br />
+    <p>Points of pork used:</p><input [(ngModel)]="item.itemNutrition.lbsPork" type="number" min="0" placeholder={{item.itemNutrition.lbsPork}}>
+    <br />
+    <p>Price: </p><input [(ngModel)]="item.price" type="number" step="0.01" min="0" placeholder={{item.price}}>
+    <br /><br /><br /><br /><br />
+  </div>
+</div>

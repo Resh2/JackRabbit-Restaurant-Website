@@ -1,0 +1,125 @@
+
+
+<h3>Inventory status:</h3>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      Barcode:
+    </div>
+    <div class="col">
+      Expiration date:
+    </div>
+    <div class="col">
+      Pounds:
+    </div>
+    <div class="col">
+      Type of meat:
+    </div>
+  </div>
+  <div *ngFor="let selectedItem of INVENTORY">
+    <div class="row">
+      <div class="col">
+        {{selectedItem.barcode}}
+      </div>
+      <div class="col">
+        {{selectedItem.expDate}}
+      </div>
+      <div class="col">
+        {{selectedItem.lbs}}
+      </div>
+      <div class="col">
+        {{selectedItem.meatType}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      1
+    </div>
+    <div class="col">
+      Saturday, June 8, 2019 8:20:00 AM GMT-05:00 DST
+    </div>
+    <div class="col">
+      28.5
+    </div>
+    <div class="col">
+      <p>beef</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      2
+    </div>
+    <div class="col">
+      Saturday, June 8, 2019 8:20:00 AM GMT-05:00 DST
+    </div>
+    <div class="col">
+      30.8
+    </div>
+    <div class="col">
+      <p>pork</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      3
+    </div>
+    <div class="col">
+      Saturday, June 8, 2019 8:20:00 AM GMT-05:00 DST
+    </div>
+    <div class="col">
+      28.7
+    </div>
+    <div class="col">
+      <p>chicken</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      4
+    </div>
+    <div class="col">
+      Saturday, June 8, 2019 8:20:00 AM GMT-05:00 DST
+    </div>
+    <div class="col">
+      199
+    </div>
+    <div class="col">
+      <p>beef</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      5
+    </div>
+    <div class="col">
+      Saturday, June 8, 2019 8:20:00 AM GMT-05:00 DST
+    </div>
+    <div class="col">
+      199
+    </div>
+    <div class="col">
+      <p>pork</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      6
+    </div>
+    <div class="col">
+      Saturday, June 8, 2019 8:20:00 AM GMT-05:00 DST
+    </div>
+    <div class="col">
+      199
+    </div>
+    <div class="col">
+      <p>chicken</p>
+    </div>
+  </div>
+</div>
+
+<input type="text" [(ngModel)]="this.beefFloor" placeholder="Beef minimum" /> <input type="text" [(ngModel)]="this.beefCapacity" placeholder="Beef maximum" />
+<br /><br />
+<input type="text" [(ngModel)]="this.porkFloor" placeholder="Pork minimum" /> <input type="text" [(ngModel)]="this.porkCapacity" placeholder="Pork maximum" />
+<br /><br />
+<input type="text" [(ngModel)]="this.chickenFloor" placeholder="Chicken minimum" /> <input type="text" [(ngModel)]="this.chickenCapacity" placeholder="Chicken maximum" />

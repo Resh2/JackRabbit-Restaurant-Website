@@ -1,0 +1,11 @@
+
+   <h3>Confirm details:</h3>
+   <div>Table number:</div> {{this.table}}
+   <div>Time:</div> {{this.timeslot}}
+   <p>Wheelchair accomodations?</p> <input type="checkbox" ng-model="[this.isWheelchair]" />
+
+
+<br />
+  <button (click)="Reserve(this.timeslot,this.table,this.isWheelchair)">Reserve</button>
+  <button (click)="goBack()">Go back</button>
+
